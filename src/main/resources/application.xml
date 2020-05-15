@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    //고전적인 xml 빈 설정 파일
+    <bean id="bookService"
+          class="com.example.springframeworkcore.BookService">
+        <property name="bookRepository" ref="bookRepeository" />
+    </bean>
+
+    //이렇게만 등록하면, 북서비스가 북리파지토리를 주입받지 못함
+    //주입을 해주어야 함. 이 코드는 그냥 북서비스 만들고 끝.
+    //주입을 하려면 북서비스 프로퍼티에 리파지토리를 주입을 해주면 됨
+    //ref : 빈의 id가 와야함
+    <bean id="bookRepository"
+          class="com.example.springframeworkcore.BookRepository" />
+    -->
+
+    <!--위의 방법을 사용하면 굉장히 번거롭다. 그래서 등장한 게 아래의 방법-->
+    <!--해당 패키지부터 빈을 스캔해서 등록하겠다!-->
+    <!--
+        빈 스캔 시 사용하는 어노테이션
+        @Component
+            컴포넌트 어노테이션을 확장한 몇 가지 어노테이션
+            @Service / @Repository
+    -->
+    <context:component-scan base-package="com.example.springframeworkcore" />
+
+
+</beans>
